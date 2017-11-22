@@ -1,0 +1,48 @@
+/showName
+{moveto (Dong(Bob) Lee) 0 0 1 setrgbcolor closepath show}def
+/showPhoneNum
+{moveto (###-###-####) 0 0 1 setrgbcolor closepath show}def
+/showGitHub
+{
+	moveto (www.github/coolLink) 
+	0 0 1 setrgbcolor 
+	closepath
+	show
+}def
+/backGroundSquare
+{newpath
+	250 420 moveto
+	100 0 rlineto
+	0 100 rlineto
+	-100 0 rlineto
+	closepath
+	.8 setgray fill
+	stroke
+}def
+
+/cardOutline 
+{ newpath
+220 390 moveto
+0 144 rlineto
+252 0 rlineto
+0 -144 rlineto
+closepath
+stroke } def
+
+/doBorder 
+{ 230 400 moveto
+0 126 rlineto 
+234 0 rlineto 
+0 -126 rlineto
+closepath
+2 setlinewidth
+0 0 0 setrgbcolor 
+stroke } def
+
+backGroundSquare
+cardOutline
+doBorder
+250 500 showName
+250 480 showPhoneNum
+250 460 showGitHub
+showpage

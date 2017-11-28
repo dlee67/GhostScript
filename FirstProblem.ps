@@ -1,10 +1,18 @@
+%Been experiencing problems where if I don't define the fonts for the 
+%texts needed to be displayed, no texts shows at all.
+/MainFont
+/Helvetica-Bold findfont 15 scalefont def
+
 /showName
-{moveto (Dong(Bob) Lee) 0 0 1 setrgbcolor closepath show}def
+{moveto MainFont setfont (Dong(Bob) Lee) 0 0 1 setrgbcolor closepath show}def
 /showPhoneNum
-{moveto (###-###-####) 0 0 1 setrgbcolor closepath show}def
+{moveto MainFont setfont (###-###-####) 0 0 1 setrgbcolor closepath show}def
 /showGitHub
 {
-	moveto (www.github/coolLink) 
+	moveto 
+	MainFont 
+	setfont
+	(www.github/coolLink) 
 	0 0 1 setrgbcolor 
 	closepath
 	show

@@ -1,3 +1,6 @@
+/MainFont
+/Helvetica-Bold findfont 15 scalefont def
+
 /Cell
 {newpath
 	50 0 rlineto
@@ -23,8 +26,10 @@
 
 /ControlName
 {
-	175 550 moveto
-	(Control)
+	moveto 
+	MainFont
+	setfont
+	(Head)
 	0 0 0 setrgbcolor
 	closepath
 	show
@@ -63,7 +68,9 @@
 }def
 /CellOneContent
 {
-	345 423 moveto 
+	moveto 
+	MainFont
+	setfont
 	(1)
 	0 0 0 setrgbcolor
 	closepath
@@ -83,7 +90,9 @@
 }def
 /CellTwoContent
 {
-	295 423 moveto 
+	moveto 
+	MainFont
+	setfont
 	(X)
 	0 0 0 setrgbcolor
 	closepath
@@ -104,21 +113,23 @@
 
 /CellThreeContent
 {
-	245 423 moveto 
+	moveto 
+	MainFont
+	setfont
 	(0)
 	0 0 0 setrgbcolor
 	closepath
 	show
 }def
 
+175 550 ControlName
 ControlBox
-ControlName
 ControlArrowRight
 ControlArrowDown 
+345 423 CellOneContent
 CellOne
-CellOneContent
+295 423 CellTwoContent
 CellTwo
-CellTwoContent
+245 423 CellThreeContent
 CellThree
-CellThreeContent
 showpage

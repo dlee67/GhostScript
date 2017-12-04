@@ -1,21 +1,89 @@
-newpath %Begin black box
-252 390 moveto
-72 0 rlineto
-0 -72 rlineto
-closepath
-fill
-newpath %Begin gray box
-270 360 moveto
-72 0 rlineto
-0 -72 rlineto
-closepath
-1 0 1 setrgbcolor
-fill
-newpath %Begin lighter box
-290 396 moveto
-72 0 rlineto
-0 -72 rlineto
-closepath
-0 2 2 setrgbcolor
-fill
-showpage %Send to printer
+%Dong(Bob) Lee
+%Due: 12/07/17
+%CS 3210
+
+% Set the font for each time when texts are displayed.
+/MainFont
+/Helvetica-Bold findfont 15 scalefont def
+
+% My name, which should be displayed according to the specification.
+/MyName
+{
+	moveto
+	MainFont setfont
+	(Dong(Bob) Lee)
+	0 0 0 setrgbcolor
+	closepath
+	show
+}def
+
+% Implementation of a triangle.  
+/Triangle
+{
+	newpath
+	0 0 moveto
+	100 0 rlineto
+	0 -100 rlineto
+	closepath
+	fill
+	45 rotate
+	stroke
+}def
+
+% Display my name.
+100 700 MyName
+
+% Translate the origin, so the recursive pattern of triangles could be displayed more centered.
+250 250 translate	
+31
+{
+	23 {
+		Triangle 17 rotate       % After drawing out the triangle, rotate the cartesian graph.
+		0 0 0 setrgbcolor        % Add color to the specified RGB.
+	} repeat                     % Repeat this procedure 23 times.
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		0 0 1 setrgbcolor        % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		0 1 1 setrgbcolor        % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		1 0 0 setrgbcolor        % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		0 1 0 setrgbcolor        % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		1 1 .45 setrgbcolor      % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		1 1 .45 setrgbcolor      % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		1 .23 .45 setrgbcolor    % Repeat this procedure 23 times.
+	}repeat                      %
+	                             %
+	23{                          % After drawing out the triangle, rotate the cartesian graph.
+		Triangle 17 rotate       % Add color to the specified RGB.
+		1 .14 .45 setrgbcolor    % Repeat this procedure 23 times.
+	}repeat		                 %
+	.73 .73 scale	             % Each after creating the pattern with triangles, for the creation of next pattern, 
+								 % Repeat the above procedures 31 times.
+} 
+repeat
+
+showpage

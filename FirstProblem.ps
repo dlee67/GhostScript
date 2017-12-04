@@ -1,12 +1,31 @@
-%Been experiencing problems where if I don't define the fonts for the 
-%texts needed to be displayed, no texts shows at all.
-/MainFont
-/Helvetica-Bold findfont 15 scalefont def
+%Dong(Bob) Lee
+%Due: 12/07/17
+%CS 3210
 
+/MainFont									% For postscript to determine which font to use.
+/Helvetica-Bold findfont 15 scalefont def   %
+
+% Segment of code which defines the triangle.
+/Triangle
+{
+	newpath
+	0 0 moveto
+	10 0 rlineto 
+	0 -10 rlineto
+	closepath
+	0 0 0 setrgbcolor
+	fill
+	stroke
+}def
+
+% Segment of code which enables the postscript to display name.
 /showName
 {moveto MainFont setfont (Dong(Bob) Lee) 0 0 1 setrgbcolor closepath show}def
+% Segment of code which enables the postscript to diplay phone number.
 /showPhoneNum
 {moveto MainFont setfont (###-###-####) 0 0 1 setrgbcolor closepath show}def
+
+% Segment of code which shows the link to github repository.
 /showGitHub
 {
 	moveto 
@@ -17,6 +36,8 @@
 	closepath
 	show
 }def
+
+% Segment of code which draws complementary background, which is a square.
 /backGroundSquare
 {newpath
 	250 420 moveto
@@ -28,6 +49,7 @@
 	stroke
 }def
 
+% Segment of code which draws the outline of the card.
 /cardOutline 
 { newpath
 220 390 moveto
@@ -37,6 +59,7 @@
 closepath
 stroke } def
 
+% Segment of code which draws the border of the card.
 /doBorder 
 { 230 400 moveto
 0 126 rlineto 
@@ -47,10 +70,21 @@ closepath
 0 0 0 setrgbcolor 
 stroke } def
 
+% Draw the outline, border, name, links, background, and the github link.
 backGroundSquare
 cardOutline
 doBorder
 250 500 showName
 250 480 showPhoneNum
 250 460 showGitHub
+
+410 410 translate % Translates the point of origin to 410, where the repititions of triangles are going to be drawn.
+2 {	
+	5 {
+		Triangle % Draw the triangle.
+		10 10 translate % Translate the point of origin "little bit to the right, and little bit to the up."
+	} repeat % Repeat the above procedures 5 times.
+	-50 10 translate % Translate the point of origin "little bit up," from the previous point of origin.
+} repeat
+	
 showpage

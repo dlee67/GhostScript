@@ -1,6 +1,35 @@
+%Dong(Bob) Lee
+%Due: 12/07/17
+%CS 3210
+
+% Set the font for each time when texts are displayed.
 /MainFont
 /Helvetica-Bold findfont 15 scalefont def
 
+% Display my name, for the specification for this homework.
+/MyName
+{
+	moveto
+	MainFont setfont
+	(Dong(Bob) Lee)
+	0 0 0 setrgbcolor
+	closepath
+	show
+}def
+
+% Display the triangle, which will be dangling at the end of the line, where the lines are sprouting from the control.
+/Arrow
+{
+	newpath
+	344.7 456 moveto
+	5 -5 rlineto
+	5 5 rlineto
+	fill
+	closepath
+	stroke
+}def
+
+% Pre-made displays of boxes.
 /Cell
 {newpath
 	50 0 rlineto
@@ -12,6 +41,7 @@
 	stroke
 }def
 
+% A display of box, which should hold a string "Head."
 /ControlBox
 {newpath 
 	150 500 moveto
@@ -24,6 +54,7 @@
 	stroke
 }def
 
+% A display of string "Head," which should appear in control box.
 /ControlName
 {
 	moveto 
@@ -35,6 +66,7 @@
 	show
 }def
 
+% Some arrows sprouting from the control box, which should be heading directly to the right of the control box.
 /ControlArrowRight
 {newpath
 	250 550 moveto
@@ -45,6 +77,7 @@
 	stroke
 }def
 
+% Some arrows sprouting from the control box, which should be heading directly to the down of the control box. 
 /ControlArrowDown
 {newpath 
 	350 550 moveto
@@ -55,6 +88,7 @@
 	stroke
 }def
 
+% A display of box, which should be at the farthest left among all the boxes.
 /CellOne
 {newpath
 	325 400 moveto
@@ -64,8 +98,14 @@
 	0 0 0 setrgbcolor
 	2 setlinewidth
 	closepath
+	gsave % In order to avoid border of the cells disappearing, gsave must be used.
+		0 0 1 setrgbcolor
+		fill
+	grestore
 	stroke
 }def
+
+% A display of string content, which should be displayed in the CellOne, with the string "1."
 /CellOneContent
 {
 	moveto 
@@ -77,6 +117,7 @@
 	show
 }def
 
+% A display of box, which should be in the middle among all the boxes. 
 /CellTwo
 {newpath
 	275 400 moveto
@@ -86,8 +127,14 @@
 	0 0 0 setrgbcolor
 	2 setlinewidth
 	closepath
+	gsave % In order to avoid border of the cells disappearing, gsave must be used.
+		0 0 1 setrgbcolor
+		fill
+	grestore
 	stroke
 }def
+
+% A display of string content, which should be displayed in the CellTwo, with the string "x."
 /CellTwoContent
 {
 	moveto 
@@ -99,6 +146,7 @@
 	show
 }def
 
+% A display of box, which should be displayed on the farthest right, among all the boxes.
 /CellThree
 {newpath
 	225 400 moveto
@@ -108,9 +156,14 @@
 	0 0 0 setrgbcolor
 	2 setlinewidth
 	closepath
+	gsave % In order to avoid border of the cells disappearing, gsave must be used.
+		0 0 1 setrgbcolor
+		fill
+	grestore
 	stroke
 }def
 
+% A display of string content, which should be displayed in CellThree, with the string "0."
 /CellThreeContent
 {
 	moveto 
@@ -122,14 +175,18 @@
 	show
 }def
 
+% Display everything those were previously implemented above, where 
+% look a like of Turing Machine should appear.
+20 700 MyName
 175 550 ControlName
 ControlBox
 ControlArrowRight
 ControlArrowDown 
-345 423 CellOneContent
 CellOne
-295 423 CellTwoContent
 CellTwo
-245 423 CellThreeContent
 CellThree
+Arrow
+345 423 CellOneContent
+295 423 CellTwoContent
+245 423 CellThreeContent
 showpage
